@@ -24,10 +24,10 @@ pipeline {
         sh "docker run ${dockerImage.id} npm test"
       }
     }
-    stage('Publish') {
-      when {
-        branch 'master'
-      }
+    // stage('Publish') {
+    //   when {
+    //     branch 'master'
+    //   }
       // steps {
       //   script {
       //     docker.withRegistry("", "DockerHubCredentials") {
@@ -35,7 +35,7 @@ pipeline {
       //     }
       //   }
       // }
-    }
+    // }
     // stage('Schedule Staging Deployment') {
     //   when {
     //     branch 'master'
