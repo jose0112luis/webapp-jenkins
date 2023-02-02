@@ -6,7 +6,7 @@ pipeline {
   }
 
   environment {
-    ARTIFACT_ID = "elbuo8/webapp:${env.BUILD_NUMBER}"
+    ARTIFACT_ID = "jose0112luis/webapp:${env.BUILD_NUMBER}"
   }
 
   stages {
