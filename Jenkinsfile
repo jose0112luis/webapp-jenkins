@@ -17,23 +17,26 @@ pipeline {
         }
       }
     }
+
     stage('Run tests') {
       steps {
         sh "docker run ${dockerImage.id} npm test"
       }
     }
-    // stage('Publish') {
-    //   when {
-    //     branch 'master'
-    //   }
-      // steps {
-      //   script {
-      //     docker.withRegistry("", "DockerHubCredentials") {
-      //       dockerImage.push()
-      //     }
-      //   }
-      // }
-    // }
+
+    stage('Publish') {
+      when {
+        branch 'master'
+      }
+      steps {
+        script {
+          docker.withRegistry("", "DockerHubCredentialsTest") {
+            dockerImage.push()
+          }
+        }
+      }
+    }
+
     // stage('Schedule Staging Deployment') {
     //   when {
     //     branch 'master'
